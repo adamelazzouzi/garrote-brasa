@@ -1,0 +1,242 @@
+/* ============================================
+   BASE - GARROTE & BRASA
+   Reset + variables + tipografía
+   ============================================ */
+
+/* ============================================
+   FUENTES
+   ============================================ */
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../assets/fonts/BebasNeue-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/Inter-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============================================
+   VARIABLES
+   ============================================ */
+:root {
+    /* Colores del negocio (del JSON) */
+    --primario: #C1440E;
+    --secundario: #1A1A1A;
+    --fondo: #0E0E0E;
+    --texto: #F2EDE4;
+
+    /* Variaciones */
+    --primario-oscuro: #8B2F08;
+    --primario-claro: #E85A1F;
+    --primario-brillo: #FF6B2C;
+    --secundario-claro: #2A2A2A;
+    --texto-suave: #B8B2A7;
+    --texto-tenue: #7A756C;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    --borde: #2A2A2A;
+    --borde-fuerte: #3A3A3A;
+
+    /* Tipografía */
+    --fuente-titulos: 'Bebas Neue', 'Impact', 'Arial Narrow', sans-serif;
+    --fuente-cuerpo: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+    /* Espaciado */
+    --esp-1: 4px;
+    --esp-2: 8px;
+    --esp-3: 12px;
+    --esp-4: 16px;
+    --esp-5: 20px;
+    --esp-6: 24px;
+    --esp-8: 32px;
+    --esp-10: 40px;
+    --esp-12: 48px;
+    --esp-16: 64px;
+    --esp-20: 80px;
+    --esp-24: 96px;
+    --esp-32: 128px;
+
+    /* Radios (sin redondeo, todo cuadrado) */
+    --radio-sm: 0px;
+    --radio-md: 0px;
+    --radio-lg: 0px;
+    --radio-full: 999px;
+
+    /* Transiciones */
+    --transicion: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Ancho máximo */
+    --max-ancho: 1400px;
+    --max-ancho-texto: 760px;
+}
+
+/* ============================================
+   RESET
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--fuente-cuerpo);
+    background: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulos);
+    font-weight: 400;
+    line-height: 0.95;
+    color: var(--texto);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+p {
+    margin-bottom: var(--esp-4);
+}
+
+a {
+    color: var(--primario);
+    text-decoration: none;
+    transition: color var(--transicion);
+}
+
+a:hover {
+    color: var(--primario-brillo);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* ============================================
+   CONTENEDOR
+   ============================================ */
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: var(--max-ancho);
+    margin: 0 auto;
+    padding: 0 var(--esp-6);
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--secundario);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primario);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primario-claro);
+}
+
+/* ============================================
+   SELECCIÓN
+   ============================================ */
+::selection {
+    background: var(--primario);
+    color: var(--texto);
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+.oculto {
+    display: none !important;
+}
+
+.texto-centro {
+    text-align: center;
+}
+
+/* ============================================
+   EVITAR SELECCIÓN DE TEXTO EN ELEMENTOS INTERACTIVOS
+   ============================================ */
+button,
+a,
+.faq-pregunta,
+.faq-item,
+.header-nav-link,
+.header-menu-btn,
+.header-cta,
+.header-logo,
+.header-menu-movil-link,
+.header-menu-movil-cta,
+.btn,
+.btn-primario,
+.btn-secundario,
+.producto-card,
+.servicio-card,
+.galeria-item,
+.testimonio-card {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
